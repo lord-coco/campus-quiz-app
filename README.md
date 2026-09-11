@@ -6,6 +6,8 @@ Real-time local network quiz with timed scoring, explanations, spectator mode, a
 
 ## Setup
 
+Works the same whether you host from a **laptop** or an **Android phone (via Termux)**. Just needs Python 3.9+ on whichever device is acting as host.
+
 ```bash
 pip install -r requirements.txt
 python app.py
@@ -20,6 +22,18 @@ python app.py
 
 ---
 
+## Hosting Options
+
+| Hosting from | Players connect via |
+|---|---|
+| **Laptop**, same WiFi network as players | Laptop's local network IP |
+| **Laptop**, no shared WiFi available | Turn on the laptop's mobile hotspot, players join that |
+| **Phone (Termux)** | Turn on the phone's hotspot, players join that |
+
+Either way, the host machine needs to stay on and running `app.py` for the whole quiz session.
+
+---
+
 ## URLs
 
 | URL | Who uses it |
@@ -27,7 +41,7 @@ python app.py
 | `http://localhost:5000/admin` | You (host) — admin tab |
 | `http://localhost:5000/` | You + coursemates — player tab |
 | `http://localhost:5000/spectator` | Projector / big screen view |
-| `<your-ip>:5000/` | Hotspot-connected coursemates |
+| `<host-ip>:5000/` | Everyone else connected to the same network/hotspot |
 
 ---
 
@@ -69,11 +83,13 @@ ANSWERS
 
 ---
 
-## Find Your Hotspot IP
+## Find Your Host IP
 
-- **Windows:** `ipconfig` → IPv4 Address
-- **Mac/Linux:** `ip addr` or `ifconfig`
-- **Android (Termux):** `ip route`
+Run whichever command matches the device you're hosting from:
+
+- **Laptop (Windows):** `ipconfig` → IPv4 Address
+- **Laptop (Mac/Linux):** `ip addr` or `ifconfig`
+- **Phone (Termux):** `ip route`
 
 ---
 
@@ -88,3 +104,4 @@ ANSWERS
 - ✅ Export results as PDF
 - ✅ Light/dark theme toggle
 - ✅ Reconnect-safe (score preserved)
+- 
